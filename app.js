@@ -1,0 +1,4 @@
+const songForm=document.getElementById("songForm");
+songForm.addEventListener("submit",e=>{e.preventDefault();const song=document.getElementById("song").value.trim();document.getElementById("songMessage").textContent=`✦ REQUEST RECEIVED — „${song}“ ist auf der Liste.`;songForm.reset();});
+document.getElementById("birthdayBtn").addEventListener("click",()=>{const name=document.getElementById("birthdayName").value.trim()||"SUPERSTAR";const result=document.getElementById("birthdayResult");result.innerHTML=`<h3>✦ HAPPY BIRTHDAY, ${name.toUpperCase()}! 🎂</h3><p>Heute gehört die Nacht dir.</p>`;if("speechSynthesis" in window){speechSynthesis.cancel();const u=new SpeechSynthesisUtterance(`Happy Birthday ${name}! Heute gehört die Nacht dir!`);u.lang="de-DE";speechSynthesis.speak(u);}});
+document.getElementById("year").textContent=new Date().getFullYear();
